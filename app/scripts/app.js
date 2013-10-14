@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('teamPickerApp', [])
+angular.module('teamPickerApp', ['ngRoute'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

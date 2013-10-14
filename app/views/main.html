@@ -1,6 +1,33 @@
 <div class="container">
-  <h1>FlipPong Team Picker</h1>
+  <div class="jumbotron">
+    <h1>FlipPong Team Picker</h1>
+    <div class="players">
+      <div class="player" ng-repeat="player in players">
+        {{player}}
+      </div>
+    </div>
+
+      <form ng-submit="addPlayer()">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Enter player name" ng-model="playerName">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">Add Player</button>
+          </span>
+        </div>
+      </form>
+
+  </div>
+
+
+    <div class="input-group">
+      <input type="text" class="form-control" ng-model="teams" placeholder="number of teams">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" ng-click="makeTeams()">Make Teams!!!1</button>
+      </span>
+    </div>
+
+
   <form>
-    <input type="text" class="form-control" placeholder="Enter name">
+
   </form>
 </div>
