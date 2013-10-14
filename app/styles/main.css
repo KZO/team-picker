@@ -1,0 +1,11 @@
+body {
+    background: #00aeef;
+    font-family: "Oxygen", Helvetica, Arial, sans-serif;
+    color: #fff;
+    font-size: 2em;
+}
+
+h1,h2,h3 {
+  font-family: "Oxygen";
+  font-weight: bold;
+}
