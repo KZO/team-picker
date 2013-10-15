@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('teamPickerApp', ['ngRoute'])
+angular.module('teamPickerApp', ['ngRoute', 'ngAnimate'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

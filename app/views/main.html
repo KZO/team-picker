@@ -1,33 +1,56 @@
 <div class="container">
-  <div class="jumbotron">
-    <h1>FlipPong Team Picker</h1>
-    <div class="players">
-      <div class="player" ng-repeat="player in players">
-        {{player}}
-      </div>
-    </div>
+  <h1>KZO FlipPong: </h1>
+  <!-- <blockquote>This game sucks<small>no one ever</small></blockquote> -->
+  <ul class="players">
+    <li class="player" ng-repeat="player in players">
+      <a href ng-click="remove($index)"> {{player}} <span class="glyphicon glyphicon-remove pull-right"></span> </a>
+    </li>
+  </ul>
 
-      <form ng-submit="addPlayer()">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Enter player name" ng-model="playerName">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="submit">Add Player</button>
-          </span>
-        </div>
-      </form>
-
-  </div>
-
-
-    <div class="input-group">
-      <input type="text" class="form-control" ng-model="teams" placeholder="number of teams">
+  <form ng-submit="addPlayer()">
+    <div class="input-group input-group-lg">
+      <input type="text" class="form-control" placeholder="Enter player name" ng-model="playerName">
       <span class="input-group-btn">
-        <button class="btn btn-primary" ng-click="makeTeams()">Make Teams!!!1</button>
+        <button class="btn btn-default" type="submit">Add Player</button>
       </span>
     </div>
-
-
-  <form>
-
   </form>
+
+  <br>
+
+  <form class="jumbotron form-inline">
+    <div class="form-group"> Make </div>
+    <div class="form-group">
+      <input type="input" class="form-control input-lg" id="team-var" ng-model="teamVar">
+    </div>
+    <div class="form-group">
+
+      <div class="btn-group">
+        <button ng-click="peoplePerTeam()" type="button" class="btn btn-default btn-lg">People per team</button>
+        <button type="button" class="btn btn-default dropdown-toggle btn-lg" data-toggle="dropdown">
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href ng-click="makeTeams()">Teams total</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </form>
+
+
+  <!-- Team Assignments -->
+  <div ng-hide="!showTeams" id="team-assignments">
+    <div class="team" ng-repeat="team in teams">
+      <div class="team-name">
+        <h1>Team {{$index + 1}}</h1>
+        <small>({{team.name}})</small>
+      </div>
+      <ul class="players">
+        <li class="player" ng-repeat="person in team">{{person}}</li>
+      </ul>
+    </div>
+    <button type="button" class="close" ng-click="showTeams = !showTeams" aria-hidden="true">&times;</button>
+  </div>
+
 </div>
