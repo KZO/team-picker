@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('teamPickerApp').controller('MainCtrl', function ($scope) {
-  $scope.players = ['wes', 'jodi', 'jeff', 'oscar', 'nathan', 'andrew'];
+  $scope.players = ['wes', 'jodi', 'jeff', 'oscar', 'nathan', 'andrew', 'micah', 'erica'];
   $scope.teams = [];
   $scope.teamVar = 2;
   $scope.showTeams = false;
@@ -9,11 +9,10 @@ angular.module('teamPickerApp').controller('MainCtrl', function ($scope) {
 
   var adjectives = [
     'raging',
-    'crappy',
-    'sucky',
-    'douchey',
     'illiterate',
     'spastic',
+    'crappy',
+    'douchey',
     'silly',
     'riotous',
     'hysterical',
@@ -38,6 +37,7 @@ angular.module('teamPickerApp').controller('MainCtrl', function ($scope) {
     'flaky',
     'creepy',
     'attractive',
+    'unattractive',
     'icky',
     'vomitous',
     'nauseating',
@@ -46,7 +46,6 @@ angular.module('teamPickerApp').controller('MainCtrl', function ($scope) {
   ];
 
   var nouns = [
-    'dicks',
     'unicorns',
     'mermaid eggs',
     'exorcists',
@@ -55,28 +54,28 @@ angular.module('teamPickerApp').controller('MainCtrl', function ($scope) {
     'weiners',
     'kumquats',
     'holes',
-    'pricks',
     'lunatics',
     'nuts',
     'gypsies',
     'fissures',
     'boils',
+    'pricks',
     'perspirers',
     'mcRibs',
     'lickers',
     'suckers',
     'hamburglers',
+    'dicks',
     'attackers'
   ];
 
-  $scope.getTeamName = function() {
+  $scope.getTeamName = function(num) {
     var adj = Math.floor(Math.random() * (adjectives.length));
     var noun = Math.floor(Math.random() * (nouns.length));
 
     var teamName = adjectives[adj] + ' ' + nouns[noun];
-    console.log(teamName);
-    adjectives.splice(adj,1);
-    nouns.splice(noun,1);
+    // adjectives.splice(adj,1);
+    // nouns.splice(noun,1);
 
     return teamName;
   };
@@ -95,8 +94,8 @@ angular.module('teamPickerApp').controller('MainCtrl', function ($scope) {
       var teamNumber = idx % $scope.teamVar;
       $scope.teams[teamNumber] = $scope.teams[teamNumber] || [];
       $scope.teams[teamNumber].push(player);
+      $scope.teams[teamNumber].name = $scope.getTeamName();
     });
-    console.log(this.teams);
     this.showTeams = true;
   };
 
